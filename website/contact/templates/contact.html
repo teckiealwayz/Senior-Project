@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="center_box">
+
+<div class="one_half">
+	<h2> Find Us </h2>
+	<div class="divider"></div>
+	<!-- MAP -->
+	<div id="map" style="position: relative; overflow: hidden;">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7205.04730177455!2d-98.17383873296554!3d26.30686855122203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8665a25475a86c51%3A0x92a37e20dc2e29ad!2s1405+W+Carmen+Ave%2C+Edinburg%2C+TX+78541!5e0!3m2!1sen!2sus!4v1493090481044" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</div>
+
+</div>
+<div class="one_half omega">
+	<h2>Address</h2>
+	<div class="divider"></div>
+	<div class="boxing">
+	<p>Optica Corsa<br>
+						500 Gardenia Sur<br>
+						Reynosa, Tamaulipas<br>
+						Centro Reynosa<br><br>
+						Tel - 899-930-9063<br>
+						Fax - ###-###-####<br>
+						Para hacer una cita con a la Dra. Martinez, llame: ###-###-####<br><br>
+						<h3> Horario </h3>
+						Lunes - 9:00am - 7:00pm.<br>
+						Martes -  9:00am - 7:00pm. <br>
+						Miercoles - 9:00am - 7:00pm.<br>
+						Jueves - 9:00am - 7:00pm.<br>
+						Viernes - 9:00am - 7:00pm.<br>
+						Sabado - 9:00am - 7:00pm.<br>
+						Domingo - cerrado.
+	</p>
+	</div>
+
+
+</div>
+
+	<!-- divider section -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-1 col-sm-1"></div>
+		<div class="col-md-10 col-sm-10">
+			<hr>
+		</div>
+		<div class="col-md-1 col-sm-1"></div>
+	</div>
+</div>
+
+	<!-- submit info -->
+<div id="contact">
+	<div class="container">
+
+
+
+		<div class="col-md-10 col-sm-10">
+			<h2> {{ title }}</h2>
+        {% if confirm_message %}
+		<p> {{ confirm_message }} </p>
+        {% endif %}
+        {% if form %}
+        <form method="POST" action=""> {% csrf_token %}
+
+			<div class="col-md-6 col-sm-6">
+				{{ form.name|as_crispy_field }}
+			</div>
+
+			<div class="col-md-6 col-sm-6">
+				{{ form.email|as_crispy_field }}
+			</div>
+
+			<div class="col-md-12 col-sm-12">
+				{{ form.subject|as_crispy_field }}
+			</div>
+
+			<div class="col-md-12 col-sm-12">
+				{{ form.comment|as_crispy_field }}
+			</div>
+
+			<div class="col-md-4 col-sm-4">
+				<input type="submit" value="submit form" class="form-control" >
+			</div>
+
+
+        </form>
+        {% endif %}
+		</div>
+	</div>
+</div>
+
+
+</div>
+{% endblock %}
+
+
+
